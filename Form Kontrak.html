@@ -82,11 +82,6 @@
 <a href="masa_kontrak.jpg" target="_blank">
 <center><button class="tombol">Klik untuk melihat masa kontrak anda</button></center>
 </a>
-<form action="/upload" method="post" enctype="multipart/form-data">
-  <label for="myFile">Select a file to upload:</label>
-  <input type="file" id="myFile" name="uploadedFile">
-  <button type="submit">Upload File</button>
-</form>
 <br>
 
 <h3 align="center">Pasal 2 </h3>
@@ -201,7 +196,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<button onclick="window.print()">Submit</button>
+<button id="saveButton" onclick="window.print() ">Submit</button>
+
 <script>
 document.getElementById('saveButton').addEventListener('click', function() {
       // Pilih elemen yang ingin di-convert (seluruh body)
@@ -210,10 +206,10 @@ document.getElementById('saveButton').addEventListener('click', function() {
       // Opsi untuk html2pdf
       const opt = {
         margin:       1,
-        filename:     'kontrak.pdf',
+        filename:     'halaman.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
 
       // Konversi dan simpan
@@ -258,14 +254,10 @@ var canvas = document.getElementById('signature-pad');
         xhr.send("signature=" + encodeURIComponent(dataURL));
       }
     });
-	
-	
-	
-
 </script>
 <hr>
 <footer>
- <p><center>&copy; 2025 [PT. Federasi Jaya Mandiri]. All rights reserved.</center></p>
+ <p><center>&copy; 2025 PT. Federasi Jaya Mandiri. All rights reserved.</center></p>
 </footer>
 </div>
 </body>
